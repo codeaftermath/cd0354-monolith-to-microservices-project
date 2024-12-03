@@ -4,7 +4,7 @@ on:
   push:
     branches:
     - main
-    paths: ['build-docker-reverseproxy.yml', 'udagram-reverseproxy']
+    paths: ['.github/workflows/build-docker-reverseproxy.yml', 'udagram-reverseproxy']
     
 jobs:
   build-docker-image:
