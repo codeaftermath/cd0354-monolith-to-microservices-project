@@ -10,6 +10,9 @@ jobs:
   build-docker-image:
     name: Build and Publish a Docker image
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./udagram-reverseproxy
 
     steps:
     - name: Checkout code
@@ -17,8 +20,6 @@ jobs:
       with:
         sparse-checkout: |
           udagram-reverseproxy
-          
-    - run: cd udagram-reverseproxy
       
     - name: Build
       run: docker build . -t udagram-reverseproxy
