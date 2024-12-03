@@ -1,15 +1,15 @@
-name: build-docker-reverseproxy
+name: build-docker-udagram-api-feed
 
 on:
   push:
     branches:
     - main
     paths:
-    - '.github/workflows/build-docker-reverseproxy.yml'
-    - 'udagram-reverseproxy'
+    - '.github/workflows/build-docker-api-feed.yml'
+    - 'udagram-api-feed'
 
 env:
-  APPLICATION_NAME: udagram-reverseproxy
+  APPLICATION_NAME: udagram-api-feed
 
 jobs:
   build-docker-image:

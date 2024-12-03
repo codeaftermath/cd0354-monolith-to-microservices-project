@@ -1,15 +1,15 @@
-name: build-docker-reverseproxy
+name: build-docker-frontend
 
 on:
   push:
     branches:
     - main
     paths:
-    - '.github/workflows/build-docker-reverseproxy.yml'
-    - 'udagram-reverseproxy'
+    - '.github/workflows/build-docker-frontend.yml'
+    - 'udagram-frontend'
 
 env:
-  APPLICATION_NAME: udagram-reverseproxy
+  APPLICATION_NAME: udagram-frontend
 
 jobs:
   build-docker-image:
