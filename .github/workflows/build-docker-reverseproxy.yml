@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+    - main
+    paths: ['build-docker-reverseproxy.yml', 'udagram-reverseproxy']
+    
+jobs:
+  build-docker-image:
+    name: Build and Publish a Docker image
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          udagram-reverseproxy
+      
+    - name: Build
+      run: docker build . -t udagram-reverseproxy
+
+    - name: Tag
+      run: docker tag udagram-reverseproxy ${{ secrets.DOCKER_USERNAME }}/udagram-reverseproxy:latest
+
+    - name: Publish
+      run: |
+        docker login -u "${{ secrets.DOCKER_USERNAME }}" -p ${{ secrets.DOCKER_PASSWORD }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/udagram-reverseproxy
