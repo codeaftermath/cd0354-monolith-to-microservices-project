@@ -6,7 +6,7 @@ on:
     - main
     paths:
     - '.github/workflows/build-docker-reverseproxy.yml'
-    - './udagram-reverseproxy/**'
+    - 'udagram-reverseproxy/**'
 
 env:
   APPLICATION_NAME: udagram-reverseproxy
