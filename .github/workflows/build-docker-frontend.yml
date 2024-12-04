@@ -6,7 +6,7 @@ on:
     - main
     paths:
     - '.github/workflows/build-docker-frontend.yml'
-    - 'udagram-frontend'
+    - 'udagram-frontend/**'
 
 env:
   APPLICATION_NAME: udagram-frontend

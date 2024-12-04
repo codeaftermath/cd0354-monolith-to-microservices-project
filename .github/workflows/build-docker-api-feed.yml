@@ -6,7 +6,7 @@ on:
     - main
     paths:
     - '.github/workflows/build-docker-api-feed.yml'
-    - 'udagram-api-feed'
+    - 'udagram-api-feed/**'
 
 env:
   APPLICATION_NAME: udagram-api-feed

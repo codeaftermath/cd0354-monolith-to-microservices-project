@@ -6,7 +6,7 @@ on:
     - main
     paths:
     - '.github/workflows/build-docker-api-user.yml'
-    - 'udagram-api-user'
+    - 'udagram-api-user/**'
 
 env:
   APPLICATION_NAME: udagram-api-user
