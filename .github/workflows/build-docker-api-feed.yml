@@ -30,7 +30,7 @@ jobs:
       run: docker build . -t ${{ env.APPLICATION_NAME }}
 
     - name: Tag
-      run: docker tag ${{ env.APPLICATION_NAME }} ${{ secrets.DOCKER_USERNAME }}/${{ env.APPLICATION_NAME }}:latest
+      run: docker tag ${{ env.APPLICATION_NAME }} ${{ secrets.DOCKER_USERNAME }}/${{ env.APPLICATION_NAME }}:${{ github.run_number }}
 
     - name: Publish
       run: |
