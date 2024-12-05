@@ -5,7 +5,7 @@ metadata:
   labels:
     app: udagram-frontend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: udagram-frontend
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: udagram-frontend-container
-        image: codeaftermath/udagram-frontend
+        image: codeaftermath/udagram-frontend:3-local
         ports:
         - containerPort: 8080
