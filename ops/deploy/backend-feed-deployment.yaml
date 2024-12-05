@@ -5,7 +5,7 @@ metadata:
   labels:
     app: udagram-api-feed
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: udagram-api-feed
@@ -15,8 +15,8 @@ spec:
         app: udagram-api-feed
     spec:
       containers:
-      - name: udagram-api-feed-container
-        image: codeaftermath/udagram-api-feed:3
+      - name: udagram-api-feed
+        image: codeaftermath/udagram-api-feed:4
         ports:
         - containerPort: 8080
         env:
