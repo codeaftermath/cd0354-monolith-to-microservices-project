@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-api-feed
+  labels:
+    app: udagram-api-feed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-api-feed
+  template:
+    metadata:
+      labels:
+        app: udagram-api-feed
+    spec:
+      containers:
+      - name: udagram-api-feed-container
+        image: codeaftermath/udagram-api-feed:3
+        ports:
+        - containerPort: 8080
+        env:
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_USERNAME
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_HOST
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_DB              
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: JWT_SECRET     
