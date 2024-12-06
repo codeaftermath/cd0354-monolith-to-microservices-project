@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: udagram-frontend-container
-        image: codeaftermath/udagram-frontend:3-local
+        image: codeaftermath/udagram-frontend:3
         ports:
-        - containerPort: 8080
+        - containerPort: 80
