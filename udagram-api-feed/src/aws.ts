@@ -3,8 +3,18 @@ import {config} from './config/config';
 
 
 // Configure AWS
-const credentials = new AWS.SharedIniFileCredentials({profile: config.aws_profile});
-AWS.config.credentials = credentials;
+AWS.CredentialProviderChain.defaultProviders = [
+  function () { return new AWS.EnvironmentCredentials('AWS'); },
+  function () { return new AWS.SharedIniFileCredentials({profile: config.aws_profile }); }
+];
+new AWS.CredentialProviderChain().resolve((err, credential) => {
+  if (!err) {
+    AWS.config.credentials = credential
+  }
+  else {
+    console.error("Unable to set AWS credential", err)
+  }
+});
 
 export const s3 = new AWS.S3({
   signatureVersion: 'v4',
