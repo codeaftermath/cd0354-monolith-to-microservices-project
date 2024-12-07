@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: udagram-api-feed
-        image: codeaftermath/udagram-api-feed:6
+        image: codeaftermath/udagram-api-feed:7
         ports:
         - containerPort: 8080
         env:
