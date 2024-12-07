@@ -14,10 +14,9 @@ spec:
       labels:
         app: udagram-api-feed
     spec:
-      serviceAccountName: backend-feed-service-account
       containers:
       - name: udagram-api-feed
-        image: codeaftermath/udagram-api-feed:4
+        image: codeaftermath/udagram-api-feed:6
         ports:
         - containerPort: 8080
         env:
@@ -48,31 +47,26 @@ spec:
               key: JWT_SECRET     
         - name: AWS_REGION
           valueFrom:
-            configMapKeyRef:
-              name: env-config
+            secretKeyRef:
+              name: aws-secret
               key: AWS_REGION
         - name: AWS_PROFILE
           valueFrom:
-            configMapKeyRef:
-              name: env-config
+            secretKeyRef:
+              name: aws-secret
               key: AWS_PROFILE 
         - name: AWS_BUCKET
           valueFrom:
-            configMapKeyRef:
-              name: env-config
+            secretKeyRef:
+              name: aws-secret
               key: AWS_BUCKET 
         - name: AWS_ACCESS_KEY_ID
           valueFrom:
             secretKeyRef:
               name: aws-secret
-              key: aws_access_key_id   
+              key: AWS_ACCESS_KEY_ID
         - name: AWS_SECRET_ACCESS_KEY
           valueFrom:
             secretKeyRef:
               name: aws-secret
-              key: aws_secret_access_key   
-        - name: AWS_SESSION_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: aws-secret
-              key: aws_session_token   
+              key: AWS_SECRET_ACCESS_KEY
