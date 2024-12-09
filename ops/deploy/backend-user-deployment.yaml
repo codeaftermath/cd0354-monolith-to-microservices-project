@@ -17,6 +17,11 @@ spec:
       containers:
       - name: udagram-api-user-container
         image: codeaftermath/udagram-api-user:4
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 400m
         ports:
         - containerPort: 8080
         env:
